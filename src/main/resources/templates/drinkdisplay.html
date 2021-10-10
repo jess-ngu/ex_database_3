@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>My Drinks</title>
+<style>
+@charset "ISO-8859-1";
+
+* {
+	font-family: Helvetica;
+}
+
+a {
+	display: block;
+	text-align: center;
+	text-decoration: none;
+	text-transform: uppercase;
+	color: #0f2422;
+	transition: 0.3s;
+}
+
+a:hover {
+	color: #b3ffec;
+}
+
+h1 {
+	text-align: center;
+	font-size: 26px;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	padding: 25px 0;
+}
+
+h2 {
+	text-align: center;
+	text-transform: uppercase;
+}
+
+table {
+	border-radius: 5px;
+	font-size: 12px;
+	font-weight: normal;
+	border: none;
+	border-collapse: collapse;
+	width: 100%;
+	max-width: 100%;
+	white-space: nowrap;
+	background-color: white;
+}
+
+td {
+	text-align: center;
+	width: 300px;
+	padding: 10px;
+}
+
+th {
+	background-color: #333;
+	color: white;
+	text-transform: uppercase;
+	font-weight: bold;
+	padding: 10px;
+}
+
+tr:hover {
+	color: grey;
+}
+
+#container {
+	display: block;
+	text-align: center;
+	margin-left: 150px;
+}
+
+#sidebar {
+	height: 100%;
+	width: 150px;
+	position: absolute;
+	left: 0;
+	top: 0;
+	padding-top: 10px;
+	background-color: #80cbc4;
+}
+</style>
+</head>
+<body>
+	<div id="sidebar">
+		<br> 
+		<h2>Menu</h2>
+		<br>
+		<a th:href="@{/}">Home</a> <br> <br>
+		<a th:href="@{/drinkAdd}">Add Drinks</a> <br> <br>
+		<a th:href="@{/drinkDisplay}">Display Drinks</a> <br> <br>
+	</div>
+	
+	<div id="container">
+		<h1>Drinks</h1>
+		<table>
+			<tr>
+				<th>Name</th>
+				<th>Main</th>
+				<th>Amount 1</th>
+				<th>Second</th>
+				<th>Amount 2</th>
+				<th>Directions</th>
+				<th></th>
+				<th></th>
+			</tr>
+			<tr th:each="drink : ${drinks}">
+				<td th:text="${drink.name}"></td>
+				<td th:text="${drink.main}"></td>
+				<td th:text="${drink.amount1}"></td>
+				<td th:text="${drink.second}"></td>
+				<td th:text="${drink.amount2}"></td>
+				<td th:text="${drink.directions}"></td>
+				<td><a href="" th:href="@{/drinkEdit/{id}(id=${drink.id})}">EDIT</a></td>
+				<td><a href="" th:href="@{/drinkDelete/{id}(id=${drink.id})}">DELETE</a></td>
+			</tr>
+		</table>
+	</div>
+</body>
+</html>

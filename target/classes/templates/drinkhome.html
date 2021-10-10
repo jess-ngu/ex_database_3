@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<link rel="stylesheet" href="drinkstyle.css">
+<meta charset="ISO-8859-1">
+<title>Alcohol Place!</title>
+<style>
+@charset "ISO-8859-1";
+
+* {
+	font-family: Helvetica;
+}
+
+a {
+	display: block;
+	text-align: center;
+	text-decoration: none;
+	text-transform: uppercase;
+	color: #0f2422;
+	transition: 0.3s;
+}
+
+a:hover {
+	color: #b3ffec;
+}
+
+h1 {
+	text-align: center;
+	font-size: 26px;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	padding: 25px 0;
+}
+
+h2 {
+	text-align: center;
+	text-transform: uppercase;
+}
+
+table {
+	border-radius: 5px;
+	font-size: 12px;
+	font-weight: normal;
+	border: none;
+	border-collapse: collapse;
+	width: 100%;
+	max-width: 100%;
+	white-space: nowrap;
+	background-color: white;
+}
+
+td {
+	text-align: center;
+	width: 300px;
+	padding: 10px;
+}
+
+th {
+	background-color: #333;
+	color: white;
+	text-transform: uppercase;
+	font-weight: bold;
+	padding: 10px;
+}
+
+tr:hover {
+	color: grey;
+}
+
+#container {
+	display: block;
+	text-align: center;
+	margin-left: 150px;
+}
+
+#sidebar {
+	height: 100%;
+	width: 150px;
+	position: absolute;
+	left: 0;
+	top: 0;
+	padding-top: 10px;
+	background-color: #80cbc4;
+}
+</style>
+</head>
+<body>
+	<div id="sidebar">
+		<br> 
+		<h2>Menu</h2>
+		<br>
+		<a th:href="@{/}">Home</a> <br> <br>
+		<a th:href="@{/drinkAdd}">Add Drinks</a> <br> <br>
+		<a th:href="@{/drinkDisplay}">Display Drinks</a> <br> <br>
+	</div>
+	<div id="container">
+	<h1>Use the menu to get started</h1>
+	</div>
+</body>
+</html>
